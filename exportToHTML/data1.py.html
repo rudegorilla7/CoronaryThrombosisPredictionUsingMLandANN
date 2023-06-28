@@ -1,0 +1,96 @@
+<html>
+<head>
+<title>data1.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #808080;}
+.s3 { color: #6a8759;}
+.s4 { color: #6897bb;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+data1.py</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">streamlit </span><span class="s0">as </span><span class="s1">st</span>
+<span class="s0">def </span><span class="s1">app(df):</span>
+    <span class="s2">########################################What is Coronary thrombosis?#################################################################</span>
+
+    <span class="s1">st.title(</span><span class="s3">&quot;What is Coronary thrombosis?&quot;</span><span class="s1">)</span>
+    <span class="s1">st.markdown(</span>
+        <span class="s3">&quot;&quot;&quot; 
+         Coronary Thrombosis is a heart disease which occurs due to the formation of blood clot inside the blood vessel of the heart. 
+         The blood clot inside the blood vessel of the heart restricts the flow of blood within the heart which may lead to heart tissue damage or even heart attack. 
+         This is mostly caused because of cholesterol and fats present in artery wall. 
+         &quot;&quot;&quot;</span><span class="s1">)</span>
+
+    <span class="s1">col1</span><span class="s0">, </span><span class="s1">col2=st.columns(</span><span class="s4">2</span><span class="s1">)</span>
+    <span class="s0">with </span><span class="s1">col1:</span>
+        <span class="s1">st.subheader(</span><span class="s3">&quot;Risk factors:-&quot;</span><span class="s1">)</span>
+        <span class="s1">st.markdown(</span><span class="s3">&quot;1. High LDL Cholesterol&quot;</span><span class="s1">)</span>
+        <span class="s1">st.markdown(</span><span class="s3">&quot;2. Smoking&quot;</span><span class="s1">)</span>
+        <span class="s1">st.markdown(</span><span class="s3">&quot;3. Sedentary Life Style&quot;</span><span class="s1">)</span>
+        <span class="s1">st.markdown(</span><span class="s3">&quot;4. Hypertension&quot;</span><span class="s1">)</span>
+
+    <span class="s0">with </span><span class="s1">col2:</span>
+        <span class="s1">st.image(</span><span class="s3">&quot;.\images\_NoSmoking.jpeg&quot;</span><span class="s1">)</span>
+
+    <span class="s1">st.subheader(</span><span class="s3">&quot; &quot;</span><span class="s1">)</span>
+    <span class="s1">st.subheader(</span><span class="s3">&quot; &quot;</span><span class="s1">)</span>
+    <span class="s1">st.subheader(</span><span class="s3">&quot; &quot;</span><span class="s1">)</span>
+    <span class="s1">st.subheader(</span><span class="s3">&quot; &quot;</span><span class="s1">)</span>
+    <span class="s1">st.subheader(</span><span class="s3">&quot; &quot;</span><span class="s1">)</span>
+    <span class="s1">st.subheader(</span><span class="s3">&quot; &quot;</span><span class="s1">)</span>
+    <span class="s1">st.subheader(</span><span class="s3">&quot; &quot;</span><span class="s1">)</span>
+
+    <span class="s2">########################################Signs and Symptoms#################################################################</span>
+
+    <span class="s1">st.subheader(</span><span class="s3">&quot;Signs and Symptoms&quot;</span><span class="s1">)</span>
+    <span class="s1">st.markdown(</span>
+        <span class="s3">&quot;&quot;&quot; 
+        Coronary Thrombus is **Asymptomatic**. 
+        It doesn't show any signs or symptoms usually until heart attack. 
+        &quot;&quot;&quot;</span>
+    <span class="s1">)</span>
+
+    <span class="s0">with </span><span class="s1">st.expander(</span><span class="s3">&quot;possible symptoms&quot;</span><span class="s1">):</span>
+
+        <span class="s1">st.markdown(</span><span class="s3">&quot;-&gt; Crushing Chest pain&quot;</span><span class="s1">)</span>
+        <span class="s1">st.markdown(</span><span class="s3">&quot;-&gt; Shortness of breath&quot;</span><span class="s1">)</span>
+        <span class="s1">st.markdown(</span><span class="s3">&quot;-&gt; Upper body discomfort &quot;</span><span class="s1">)</span>
+
+    <span class="s1">st.image(</span><span class="s3">&quot;.\images\symptom.jpeg&quot;</span><span class="s1">)</span>
+
+    <span class="s1">st.title(</span><span class="s3">&quot; &quot;</span><span class="s1">)</span>
+    <span class="s1">st.title(</span><span class="s3">&quot; &quot;</span><span class="s1">)</span>
+    <span class="s1">st.title(</span><span class="s3">&quot; &quot;</span><span class="s1">)</span>
+    <span class="s1">st.title(</span><span class="s3">&quot; &quot;</span><span class="s1">)</span>
+    <span class="s1">st.title(</span><span class="s3">&quot; &quot;</span><span class="s1">)</span>
+
+
+
+
+    <span class="s2">########################################Heart Attack vs Coronary Thrombosis#################################################################</span>
+
+
+    <span class="s1">st.subheader(</span><span class="s3">&quot;Heart Attack vs Coronary Thrombosis&quot;</span><span class="s1">)</span>
+    <span class="s1">st.write(</span><span class="s3">&quot;Coronary Thrombosis is often confused with heart attack as many are not aware of the differences between them. Here is the difference between the two.&quot;</span><span class="s1">)</span>
+    <span class="s1">st.write(</span><span class="s3">&quot;Heart attack: Heart attack refers to the death of the heart tissue due to the consequent loss of blood flow.&quot;</span><span class="s1">)</span>
+    <span class="s1">st.write(</span><span class="s3">&quot;Thrombosis: It refers to blocking of blood vessels due to a thrombus.&quot;</span><span class="s1">)</span>
+    <span class="s1">st.image(</span><span class="s3">&quot;.\images\Thrombosis.jpeg&quot;</span><span class="s1">)</span>
+
+    <span class="s1">st.title(</span><span class="s3">&quot; &quot;</span><span class="s1">)</span>
+    <span class="s1">st.title(</span><span class="s3">&quot; &quot;</span><span class="s1">)</span>
+    <span class="s1">st.title(</span><span class="s3">&quot; &quot;</span><span class="s1">)</span>
+    <span class="s1">st.title(</span><span class="s3">&quot; &quot;</span><span class="s1">)</span>
+    <span class="s1">st.title(</span><span class="s3">&quot; &quot;</span><span class="s1">)</span>
+
+    <span class="s1">st.header(</span><span class="s3">&quot;Here's the dataset used for training the model&quot;</span><span class="s1">)</span>
+    <span class="s1">st.dataframe(df)</span>
+</pre>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<html>
+<head>
+<title>healthyLife.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6a8759;}
+.s3 { color: #6897bb;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+healthyLife.py</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">streamlit </span><span class="s0">as </span><span class="s1">st</span>
+<span class="s0">def </span><span class="s1">app():</span>
+    <span class="s1">st.header(</span><span class="s2">&quot;Ways for Healthier Lifestyle&quot;</span><span class="s1">)</span>
+    <span class="s1">st.markdown(</span>
+        <span class="s2">&quot;&quot;&quot;The lifestyle of an individual plays an important role in determining if a person is most likely to get  
+                Coronary Thrombosis in the nearby future. 
+                A person who is more active physically and has a healthy diet and avoids smoking has  way less chance of  
+                getting coronary thrombosis than the one who is in his bed all day, eating junks and smokes a lot. 
+                </span><span class="s0">\n</span><span class="s2">Here we try to suggest few ways in which we can improve an individual's lifestyle. 
+                At first, we have YOGA, which helps an individual move his body around physically and regulates the blood flow through out his body 
+                Diet follows Yoga. As the famous saying goes &quot;Abs are made in the Kitchen&quot; what we eat defines our health.  
+                </span><span class="s0">\n</span><span class="s2">Click on the tabs given below to learn more about them.&quot;&quot;&quot;</span><span class="s1">)</span>
+    <span class="s0">with </span><span class="s1">st.expander(</span><span class="s2">&quot;YOGA&quot;</span><span class="s1">):</span>
+        <span class="s1">st.markdown(</span><span class="s2">&quot;Here is a video which shows us various yoga asanas which help us in improving our overall health&quot;</span><span class="s1">)</span>
+        <span class="s1">st.video(</span><span class="s2">&quot;https://youtu.be/CS7uNgsrlYA&quot;</span><span class="s1">)</span>
+    <span class="s0">with </span><span class="s1">st.expander(</span><span class="s2">&quot;DIET&quot;</span><span class="s1">):</span>
+        <span class="s1">st.markdown(</span><span class="s2">&quot;Diet plays an important role in our day to day life and is underrated so much. We can spread awareness and learn more by watching the video given below&quot;</span><span class="s1">)</span>
+        <span class="s1">st.video(</span><span class="s2">&quot;https://youtu.be/jUm8fFcTbG0&quot;</span><span class="s1">)</span>
+
+        <span class="s1">col1</span><span class="s0">, </span><span class="s1">col2=st.columns(</span><span class="s3">2</span><span class="s1">)</span>
+        <span class="s0">with </span><span class="s1">col1:</span>
+            <span class="s1">st.markdown(</span><span class="s2">&quot;Here's a list of food items to avoid:-&quot;</span><span class="s1">)</span>
+            <span class="s1">st.markdown(</span><span class="s2">&quot;1. High amounts of Sugar, Salt and Saturated Fat&quot;</span><span class="s1">)</span>
+            <span class="s1">st.markdown(</span><span class="s2">&quot;2. Fried food items&quot;</span><span class="s1">)</span>
+            <span class="s1">st.markdown(</span><span class="s2">&quot;3. Bacon and Processed Meats&quot;</span><span class="s1">)</span>
+            <span class="s1">st.markdown(</span><span class="s2">&quot;4. Soda&quot;</span><span class="s1">)</span>
+
+        <span class="s0">with </span><span class="s1">col2:</span>
+            <span class="s1">st.markdown(</span><span class="s2">&quot;Here's a list of food items to include:-&quot;</span><span class="s1">)</span>
+            <span class="s1">st.markdown(</span><span class="s2">&quot;1. Fresh Fruits and Vegetables&quot;</span><span class="s1">)</span>
+            <span class="s1">st.markdown(</span><span class="s2">&quot;2. Whole Grain&quot;</span><span class="s1">)</span>
+            <span class="s1">st.markdown(</span><span class="s2">&quot;3. Lean Protein&quot;</span><span class="s1">)</span>
+            <span class="s1">st.markdown(</span><span class="s2">&quot;4. Replace seasonings with herbs&quot;</span><span class="s1">)</span>
+
+
+</pre>
+</body>
+</html>

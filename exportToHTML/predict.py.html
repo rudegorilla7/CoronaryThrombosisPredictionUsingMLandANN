@@ -1,0 +1,83 @@
+<html>
+<head>
+<title>predict.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #808080;}
+.s3 { color: #629755; font-style: italic;}
+.s4 { color: #6a8759;}
+.s5 { color: #6897bb;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+predict.py</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">streamlit </span><span class="s0">as </span><span class="s1">st</span>
+
+<span class="s2"># Import necessary functions from web_functions</span>
+<span class="s2">#from webFunction import predict</span>
+<span class="s0">from </span><span class="s1">webFunction </span><span class="s0">import </span><span class="s1">predict</span>
+
+
+<span class="s0">def </span><span class="s1">app(df</span><span class="s0">, </span><span class="s1">X</span><span class="s0">, </span><span class="s1">y):</span>
+    <span class="s3">&quot;&quot;&quot;This function creates the prediction page&quot;&quot;&quot;</span>
+
+    <span class="s2"># Add title to the page</span>
+    <span class="s1">st.title(</span><span class="s4">&quot;Prediction Page&quot;</span><span class="s1">)</span>
+
+    <span class="s2"># Add a brief description</span>
+    <span class="s1">st.markdown(</span>
+        <span class="s4">&quot;&quot;&quot; 
+            &lt;p style=&quot;font-size:25px&quot;&gt; 
+                This app uses &lt;b style=&quot;color:green&quot;&gt;ARTIFICIAL NEURAL NETWORK&lt;/b&gt; for Coronary Thrombosis Prediction. 
+            &lt;/p&gt; 
+        &quot;&quot;&quot;</span><span class="s0">, </span><span class="s1">unsafe_allow_html=</span><span class="s0">True</span><span class="s1">)</span>
+
+    <span class="s2"># Take feature input from the user</span>
+    <span class="s2"># Add a subheader</span>
+    <span class="s1">st.subheader(</span><span class="s4">&quot;Select Values:&quot;</span><span class="s1">)</span>
+
+    <span class="s2"># Take input of features from the user.</span>
+    <span class="s1">age = st.slider(</span><span class="s4">&quot;Age&quot;</span><span class="s0">, </span><span class="s1">int(df[</span><span class="s4">&quot;age&quot;</span><span class="s1">].min())</span><span class="s0">, </span><span class="s1">int(df[</span><span class="s4">&quot;age&quot;</span><span class="s1">].max()))</span>
+    <span class="s1">male = st.slider(</span><span class="s4">&quot;Sex&quot;</span><span class="s0">, </span><span class="s1">int(df[</span><span class="s4">&quot;male&quot;</span><span class="s1">].min())</span><span class="s0">, </span><span class="s1">int(df[</span><span class="s4">&quot;male&quot;</span><span class="s1">].max()))</span>
+    <span class="s1">currentSmoker = st.slider(</span><span class="s4">&quot;CurrentSmoker&quot;</span><span class="s0">, </span><span class="s1">int(df[</span><span class="s4">&quot;currentSmoker&quot;</span><span class="s1">].min())</span><span class="s0">, </span><span class="s1">int(df[</span><span class="s4">&quot;currentSmoker&quot;</span><span class="s1">].max()))</span>
+    <span class="s1">cigsPerDay = st.slider(</span><span class="s4">&quot;Cigarettes per Day&quot;</span><span class="s0">, </span><span class="s1">int(df[</span><span class="s4">&quot;cigsPerDay&quot;</span><span class="s1">].min())</span><span class="s0">, </span><span class="s1">int(df[</span><span class="s4">&quot;cigsPerDay&quot;</span><span class="s1">].max()))</span>
+    <span class="s1">BPMeds = st.slider(</span><span class="s4">&quot;BPMeds&quot;</span><span class="s0">, </span><span class="s1">float(df[</span><span class="s4">&quot;BPMeds&quot;</span><span class="s1">].min())</span><span class="s0">, </span><span class="s1">float(df[</span><span class="s4">&quot;BPMeds&quot;</span><span class="s1">].max()))</span>
+    <span class="s1">prevalentStroke = st.slider(</span><span class="s4">&quot;prevalentStroke&quot;</span><span class="s0">, </span><span class="s1">int(df[</span><span class="s4">&quot;prevalentStroke&quot;</span><span class="s1">].min())</span><span class="s0">, </span><span class="s1">int(df[</span><span class="s4">&quot;prevalentStroke&quot;</span><span class="s1">].max()))</span>
+    <span class="s1">prevalentHyp = st.slider(</span><span class="s4">&quot;prevalentHyp&quot;</span><span class="s0">, </span><span class="s1">int(df[</span><span class="s4">&quot;prevalentHyp&quot;</span><span class="s1">].min())</span><span class="s0">, </span><span class="s1">int(df[</span><span class="s4">&quot;prevalentHyp&quot;</span><span class="s1">].max()))</span>
+    <span class="s1">diabetes = st.slider(</span><span class="s4">&quot;diabetes&quot;</span><span class="s0">, </span><span class="s1">int(df[</span><span class="s4">&quot;diabetes&quot;</span><span class="s1">].min())</span><span class="s0">, </span><span class="s1">int(df[</span><span class="s4">&quot;diabetes&quot;</span><span class="s1">].max()))</span>
+    <span class="s1">totChol = st.slider(</span><span class="s4">&quot;totChol in mg/Dl&quot;</span><span class="s0">, </span><span class="s1">int(df[</span><span class="s4">&quot;totChol&quot;</span><span class="s1">].min())</span><span class="s0">, </span><span class="s1">int(df[</span><span class="s4">&quot;totChol&quot;</span><span class="s1">].max()))</span>
+    <span class="s1">sysBP = st.slider(</span><span class="s4">&quot;sysBP in mm Hg&quot;</span><span class="s0">, </span><span class="s1">int(df[</span><span class="s4">&quot;sysBP&quot;</span><span class="s1">].min())</span><span class="s0">, </span><span class="s1">int(df[</span><span class="s4">&quot;sysBP&quot;</span><span class="s1">].max()))</span>
+    <span class="s1">diaBP = st.slider(</span><span class="s4">&quot;diaBP in mm Hg&quot;</span><span class="s0">, </span><span class="s1">int(df[</span><span class="s4">&quot;diaBP&quot;</span><span class="s1">].min())</span><span class="s0">, </span><span class="s1">int(df[</span><span class="s4">&quot;diaBP&quot;</span><span class="s1">].max()))</span>
+    <span class="s1">BMI = st.slider(</span><span class="s4">&quot;BMI&quot;</span><span class="s0">, </span><span class="s1">int(df[</span><span class="s4">&quot;BMI&quot;</span><span class="s1">].min())</span><span class="s0">, </span><span class="s1">int(df[</span><span class="s4">&quot;BMI&quot;</span><span class="s1">].max()))</span>
+    <span class="s1">heartRate = st.slider(</span><span class="s4">&quot;heartRate in beats per Minute&quot;</span><span class="s0">, </span><span class="s1">int(df[</span><span class="s4">&quot;heartRate&quot;</span><span class="s1">].min())</span><span class="s0">,</span><span class="s1">int(df[</span><span class="s4">&quot;heartRate&quot;</span><span class="s1">].max()))</span>
+    <span class="s1">glucose = st.slider(</span><span class="s4">&quot;glucose in mg/Dl&quot;</span><span class="s0">, </span><span class="s1">int(df[</span><span class="s4">&quot;glucose&quot;</span><span class="s1">].min())</span><span class="s0">, </span><span class="s1">int(df[</span><span class="s4">&quot;glucose&quot;</span><span class="s1">].max()))</span>
+
+    <span class="s2"># Create a list to store all the features</span>
+    <span class="s1">features = [male</span><span class="s0">,</span><span class="s1">age</span><span class="s0">,</span><span class="s1">currentSmoker</span><span class="s0">,</span><span class="s1">cigsPerDay</span><span class="s0">,</span><span class="s1">BPMeds</span><span class="s0">,</span><span class="s1">prevalentStroke</span><span class="s0">,</span><span class="s1">prevalentHyp</span><span class="s0">,</span><span class="s1">diabetes</span><span class="s0">,</span><span class="s1">totChol</span><span class="s0">,</span><span class="s1">sysBP</span><span class="s0">,</span><span class="s1">diaBP</span><span class="s0">,</span><span class="s1">BMI</span><span class="s0">,</span><span class="s1">heartRate</span><span class="s0">,</span><span class="s1">glucose]</span>
+
+    <span class="s2"># Create a button to predict</span>
+    <span class="s0">if </span><span class="s1">st.button(</span><span class="s4">&quot;Predict&quot;</span><span class="s1">):</span>
+        <span class="s2"># Get prediction and model score</span>
+        <span class="s1">prediction</span><span class="s0">, </span><span class="s1">score = predict(X</span><span class="s0">, </span><span class="s1">y</span><span class="s0">, </span><span class="s1">features)</span>
+        <span class="s2">#score = score + 0.06</span>
+        <span class="s1">st.info(</span><span class="s4">&quot;Predicted Sucessfully...&quot;</span><span class="s1">)</span>
+
+        <span class="s2"># Print the output according to the prediction</span>
+        <span class="s0">if </span><span class="s1">(prediction == </span><span class="s5">1</span><span class="s1">):</span>
+            <span class="s1">st.warning(</span><span class="s4">&quot;The person is prone to get CORONARY THROMBOSIS!!&quot;</span><span class="s1">)</span>
+        <span class="s0">else</span><span class="s1">:</span>
+            <span class="s1">st.success(</span><span class="s4">&quot;The person is relatively safe from CORONARY THROMBOSIS&quot;</span><span class="s1">)</span>
+
+        <span class="s2"># Print teh score of the model</span>
+        <span class="s1">st.write(</span><span class="s4">&quot;The model used has an accuracy of &quot;</span><span class="s0">, </span><span class="s1">round((score * </span><span class="s5">100</span><span class="s1">)</span><span class="s0">, </span><span class="s5">2</span><span class="s1">)</span><span class="s0">, </span><span class="s4">&quot;% and can be trusted.&quot;</span><span class="s1">)</span>
+        <span class="s1">st.write(</span><span class="s4">&quot;But it is always better to check up with your doctor.&quot;</span><span class="s1">)</span>
+
+</pre>
+</body>
+</html>
